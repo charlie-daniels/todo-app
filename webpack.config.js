@@ -13,6 +13,18 @@ module.exports = {
       template: './src/index.html'
     })
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(s(a|c)ss)$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
   devServer: {
     static: path.join(__dirname, 'dist'),
     port: 3000,
