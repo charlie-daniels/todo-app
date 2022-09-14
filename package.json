@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Task tracking app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "./node_modules/.bin/webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlie-daniels/todo-app.git"
+  },
+  "author": "Charlie Daniels",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charlie-daniels/todo-app/issues"
+  },
+  "homepage": "https://github.com/charlie-daniels/todo-app#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
+  }
+}
