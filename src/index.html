@@ -11,11 +11,11 @@
     <nav>
       <div class="left">
         <button id="show-menu">Menu</button>
-        <button id="show-dashboard">Dashboard</button>
+        <button id="show-home">Dashboard</button>
         <input type="text" name="search-query" id="search-query" placeholder="Search">
       </div>
       <div class="right">
-        <button id="show-new-project">New project</button>
+        <button id="new-item">New</button>
         <button id="show-notifications">Notifications</button>
       </div>
     </nav>
@@ -43,29 +43,18 @@
     </aside>
     <div id="dashboard">
       <header>
-        <h1 id="storage-name">Today</h1>
+        <h1 id="storage-title">Today</h1>
         <button id="filters">Filter</button>
       </header>
-      <ul id="project-list">
-        <li class="project">
-          <h3>Project 1</h3>
+      <ul id="item-list">
+        <li class="dash-item project">
+          <h3 class="name">Project 1</h3>
           <div class="properties">
             <p class="due-date">
               Due 10:00AM
             </p>
             <p class="tags">
               Important
-            </p>
-          </div>
-        </li>
-        <li class="task">
-          <h3>Task 1</h3>
-          <div class="properties">
-            <p class="due-date">
-              Due 10:00AM
-            </p>
-            <p class="tags">
-              Mediocre
             </p>
           </div>
         </li>
