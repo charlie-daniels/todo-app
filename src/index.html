@@ -7,6 +7,70 @@
   <title>Todo</title>
 </head>
 <body>
-  <div id="content"></div>
+  <div id="content">
+    <nav>
+      <div class="left">
+        <button id="show-menu">Menu</button>
+        <button id="show-dashboard">Dashboard</button>
+        <input type="text" name="search-query" id="search-query" placeholder="Search">
+      </div>
+      <div class="right">
+        <button id="show-new-project">New project</button>
+        <button id="show-notifications">Notifications</button>
+      </div>
+    </nav>
+    <aside>
+      <section id="general">
+        <ul>
+          <li>Today</li>
+          <li>Upcoming</li>
+        </ul>
+      </section>
+      <section id="favourites">
+        <h2>Favourites</h2>
+        <ul>
+          <li>proj1</li>
+          <li>task1</li>
+        </ul>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li>proj1</li>
+          <li>proj2</li>
+        </ul>
+      </section>
+    </aside>
+    <div id="dashboard">
+      <header>
+        <h1 id="storage-name">Today</h1>
+        <button id="filters">Filter</button>
+      </header>
+      <ul id="project-list">
+        <li class="project">
+          <h3>Project 1</h3>
+          <div class="properties">
+            <p class="due-date">
+              Due 10:00AM
+            </p>
+            <p class="tags">
+              Important
+            </p>
+          </div>
+        </li>
+        <li class="task">
+          <h3>Task 1</h3>
+          <div class="properties">
+            <p class="due-date">
+              Due 10:00AM
+            </p>
+            <p class="tags">
+              Mediocre
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
