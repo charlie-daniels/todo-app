@@ -15,7 +15,7 @@
         <input type="text" name="search-query" id="search-query" placeholder="Search">
       </div>
       <div class="right">
-        <button id="new-item">New</button>
+        <button id="new-task">New</button>
         <button id="show-notifications">Notifications</button>
       </div>
     </nav>
@@ -46,8 +46,8 @@
         <h1 id="storage-title">Today</h1>
         <button id="filters">Filter</button>
       </header>
-      <ul id="item-list">
-        <li class="dash-item project">
+      <ul id="task-list">
+        <li class="dash-task project">
           <h3 class="name">Project 1</h3>
           <div class="properties">
             <p class="due-date">
@@ -58,6 +58,11 @@
             </p>
           </div>
         </li>
+        <form id="new-form" class="hidden"> 
+          <input type="text" name="title" id="new-title" placeholder="Title">
+          <input type="text" name="description" id="new-description" placeholder="Description...">
+          <input type="submit" value="Submit" id="new-submit" class="submit-new-task">
+        </form>'
       </ul>
     </div>
   </div>

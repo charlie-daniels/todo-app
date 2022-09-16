@@ -2,7 +2,7 @@
 export const navMenu = document.getElementById('show-menu');
 export const navHome = document.getElementById('show-home');
 export const navSearch = document.getElementById('search-query');
-export const navNewItem = document.getElementById('new-item');
+export const navNewTask = document.getElementById('new-task');
 export const navNotifications = document.getElementById('show-notifications');
 // Sidebar
 export const sideGeneral = document.getElementById('general');
@@ -14,5 +14,12 @@ export const sideProjectsList = document.querySelector('#projects > ul');
 // Dashboard
 export const dashboardTitle = document.getElementById('storage-title');
 export const dashboardFilters = document.getElementById('filters');
-export const dashboardItemList = document.getElementById('item-list');
-export const dashboardFirstItem = document.querySelector('dash-item');
+export const dashboardTaskList = document.getElementById('task-list');
+export const dashboardFirstTask = document.querySelector('dash-task');
+// New Task Form
+export const newTaskForm = document.getElementById('new-form');
+export const newTaskFormFields = {
+  title: document.getElementById('new-title'),
+  description: document.getElementById('new-description'),
+  submit: document.getElementById('new-submit')
+};
