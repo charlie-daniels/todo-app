@@ -11,10 +11,10 @@ function createNewTask(title, description) {
   );
   taskList.push(newTask);
   DOMController.toggleNewTaskForm();
-  console.log(taskList[0].getInfo());
+  DOMController.refreshTaskList(taskList);
 }
 
-elements.navNewTask.addEventListener('click', (e) => {
+elements.navNewTask.addEventListener('click', () => {
   DOMController.toggleNewTaskForm();
 });
 

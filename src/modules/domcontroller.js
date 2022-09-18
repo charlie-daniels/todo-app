@@ -13,12 +13,36 @@ export const DOMController = (() => {
     elem.classList.contains('hidden') ? elem.classList.remove('hidden') : elem.classList.add('hidden')
   }
 
+  const taskToHTML = (task) => {
+    const wrapper = document.createElement('div');
+    const base =
+    '<li class="dash-task">' +
+      '<h3 class="title"></h3>' +
+      '<p class="description">' +
+      '<div class="properties">' +
+        '<p class="due-date"></p>' +
+        '<p class="tags"></p>' +
+      '</div>' +
+    '</li>';
+    wrapper.insertAdjacentHTML('beforeend', base);
+    wrapper.querySelector('.title').textContent = task.title;
+    wrapper.querySelector('.description').textContent = task.description;
+    return wrapper;
+  }
+
+  const refreshTaskList = (tasks) => {
+    _clearElement(elements.dashboardTaskList);
+    tasks.forEach(task => {
+      elements.dashboardTaskList.append(taskToHTML(task));
+    });
+  }
   const toggleNewTaskForm = () => {
     _toggleElementHidden(elements.newTaskForm);
     _toggleElementDisabled(elements.navNewTask);
   }
 
   return { 
-    toggleNewTaskForm
+    toggleNewTaskForm,
+    refreshTaskList
   };
 })();
