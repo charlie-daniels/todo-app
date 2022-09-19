@@ -6,9 +6,11 @@ export const DOMController = (() => {
   const _clearElement = (elem) => {
     elem.innerHTML = '';
   }
+
   const _toggleElementDisabled = (elem) => { 
     elem.disabled ? elem.disabled = false : elem.disabled = true;
   }
+
   const _toggleElementHidden = (elem) => {
     elem.classList.contains('hidden') ? elem.classList.remove('hidden') : elem.classList.add('hidden')
   }
@@ -21,12 +23,14 @@ export const DOMController = (() => {
       '<p class="description">' +
       '<div class="properties">' +
         '<p class="due-date"></p>' +
-        '<p class="tags"></p>' +
+        '<p class="priority"></p>' +
       '</div>' +
     '</li>';
     wrapper.insertAdjacentHTML('beforeend', base);
     wrapper.querySelector('.title').textContent = task.title;
     wrapper.querySelector('.description').textContent = task.description;
+    wrapper.querySelector('.due-date').textContent = task.dueDate;
+    wrapper.querySelector('.priority').textContent = task.priority;
     return wrapper;
   }
 
@@ -36,13 +40,19 @@ export const DOMController = (() => {
       elements.dashboardTaskList.append(taskToHTML(task));
     });
   }
+
   const toggleNewTaskForm = () => {
     _toggleElementHidden(elements.newTaskForm);
     _toggleElementDisabled(elements.navNewTask);
   }
 
+  const toggleMenu = () => {
+    _toggleElementHidden(elements.side);
+  }
+
   return { 
     toggleNewTaskForm,
-    refreshTaskList
+    refreshTaskList,
+    toggleMenu
   };
 })();

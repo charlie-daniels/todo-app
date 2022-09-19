@@ -1,10 +1,14 @@
-export const Task = (title, description) => {
-  let _title = title;
-  let _description = description;
+export const Task = (title, description, dueDate, priority) => {
+  let task = {
+    title,
+    description,
+    dueDate,
+    priority
+  }
+  
   let _completed = false;
 
-  return {
-    title: _title,
-    description: _description
-  };
+  task.toggleCompleted = () => {_completed = !_completed}
+
+  return task;
 };

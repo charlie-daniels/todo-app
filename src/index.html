@@ -11,7 +11,6 @@
     <nav>
       <div class="left">
         <button id="show-menu">Menu</button>
-        <button id="show-home">Dashboard</button>
         <input type="text" name="search-query" id="search-query" placeholder="Search">
       </div>
       <div class="right">
@@ -22,37 +21,36 @@
     <aside>
       <section id="general">
         <ul>
-          <li>Today</li>
-          <li>Upcoming</li>
+          <li><button id="show-inbox">Inbox</button></li>
+          <li><button id="show-today">Today</button></li>
+          <li><button id="show-upcoming">Upcoming</button></li>
         </ul>
       </section>
       <section id="favourites">
         <h2>Favourites</h2>
-        <ul>
-          <li>proj1</li>
-          <li>task1</li>
-        </ul>
+        <ul></ul>
       </section>
       <section id="projects">
         <h2>Projects</h2>
-        <ul>
-          <li>proj1</li>
-          <li>proj2</li>
-        </ul>
+        <ul></ul>
       </section>
     </aside>
     <div id="dashboard">
       <header>
-        <h1 id="storage-title">Today</h1>
+        <h1 id="display-title"></h1>
         <button id="filters">Filter</button>
       </header>
-      <ul id="task-list">
-          </div>
-        </li>
-      </ul>
+      <ul id="task-list"></ul>
       <form id="new-form" class="hidden"> 
-        <input type="text" name="title" id="new-title" placeholder="Title">
-        <input type="text" name="description" id="new-description" placeholder="Description...">
+        <input type="text" name="title" id="new-title" placeholder="Title" required>
+        <input type="text" name="description" id="new-description" placeholder="Description..." required>
+        <input type="date" name="due-date" id="new-due-date">
+        <select name="priority" id="new-priority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+          <option value="Urgent">Urgent</option>
+        </datalist>
         <input type="submit" value="Submit" id="new-submit" class="submit-new-task">
       </form>
     </div>
