@@ -1,6 +1,7 @@
 import { DOMController } from './domcontroller';
 import * as elements from './domcollection.js';
 import { Task } from './task';
+import { parseISO } from 'date-fns';
 
 let taskList = [];
 
@@ -13,7 +14,7 @@ function createNewTask(title, description, dueDate, priority) {
   );
   taskList.push(newTask);
   DOMController.toggleNewTaskForm();
-  DOMController.refreshTaskList(taskList);
+  DOMController.showInbox(taskList);
 }
 
 elements.navNewTask.addEventListener('click', () => {
@@ -26,11 +27,14 @@ elements.newTaskForm.addEventListener('submit', (e) => {
   createNewTask(
     data.get('title'),
     data.get('description'),
-    data.get('due-date'),
+    parseISO(data.get('due-date')),
     data.get('priority')
   );
 })
 
-elements.navMenu.addEventListener('click', () => {
-  DOMController.toggleMenu();
-});
+elements.navMenu.addEventListener('click', DOMController.toggleMenu);
+
+elements.sideGeneralInbox.addEventListener('click', () => DOMController.showInbox(taskList));
+elements.sideGeneralToday.addEventListener('click', () => DOMController.showToday(taskList))
+elements.sideGeneralUpcoming.addEventListener('click', () => DOMController.showUpcoming(taskList))
+

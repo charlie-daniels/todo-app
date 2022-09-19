@@ -1,3 +1,6 @@
+import { dashboardTaskList } from "./domcollection";
+import { format } from 'date-fns';
+
 export const Task = (title, description, dueDate, priority) => {
   let task = {
     title,
@@ -6,9 +9,10 @@ export const Task = (title, description, dueDate, priority) => {
     priority
   }
   
-  let _completed = false;
-
-  task.toggleCompleted = () => {_completed = !_completed}
+  task.toggleCompleted = () => {task.completed = !task.completed}
+  task.dueDateToString = () => {
+    return format(task.dueDate, 'EEEE do MMM y');
+  }
 
   return task;
 };
