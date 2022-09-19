@@ -1,18 +1,47 @@
+// Imports
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+$main-font-stack: "Raleway", serif;
+
+$highlight-color: #ec6460;
+$lowlight-color: #f1efef;
+$menu-padding: 0.5rem;
+ 
+// Mixins
+
+@mixin flex-row($center) {
+  display: flex;
+  justify-content: $center;
+  align-items: center;
+}
  // Resets
 
 html {
   box-sizing: border-box;
   font-size: 16px;
+  font-family: $main-font-stack;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: inherit;
+  outline: none;
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+}
+
+button, input, select {
+  font-family: $main-font-stack;
+  appearance: none;
+  border: none;
+  padding: 0;
+}
+
+button {
+  background: none;
 }
 
 ol, ul {
@@ -24,28 +53,23 @@ img {
   height: auto;
 }
 
-// Imports
-
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-$main-font-stack: "Raleway", serif;
-
-// Mixins
-
-@mixin flex-row($center) {
-  display: flex;
-  justify-content: $center;
-  align-items: center;
-}
-
 // Global
 
-body {
-  font-family: $main-font-stack;
+input,
+select {
+  padding: 0.2rem;
+  border-radius: 8px;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 // Layout
 
 #content {
+  height: 100vh;
   display: grid;
   grid-template: min-content auto / min-content auto;
 }
@@ -53,6 +77,8 @@ body {
 nav {
   @include flex-row(space-between);
   grid-column: 1 / span 2;
+  background-color: $highlight-color;
+  padding: $menu-padding;
 }
 
 header {
@@ -61,10 +87,50 @@ header {
 
 // Dashboard project
 
+#dashboard {
+  padding: $menu-padding;
+  & header {
+    margin-bottom: $menu-padding;
+  }
+  & .centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  & ul {
+    & li {
+      margin: .5rem 0;
+    }
+  }
+}
+
 .properties {
   @include flex-row(space-between);
 }
 
 .hidden {
   display: none;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  background-color: $lowlight-color;
+  padding: $menu-padding;
+  gap: 1rem;
+  & button {
+    padding: .2rem 0;
+    font-size: 1rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  background-color: $lowlight-color;
+  border-radius: 10px;
+  padding: $menu-padding;
 }

@@ -10,7 +10,6 @@
   <div id="content">
     <nav>
       <div class="left">
-        <button id="show-menu">Menu</button>
         <input type="text" name="search-query" id="search-query" placeholder="Search">
       </div>
       <div class="right">
@@ -41,19 +40,21 @@
         <button id="filters">Filter</button>
       </header>
       <ul id="task-list"></ul>
-      <form id="new-form" class="hidden"> 
-        <input type="text" name="title" id="new-title" placeholder="Title" required>
-        <input type="text" name="description" id="new-description" placeholder="Description..." required>
-        <input type="date" name="due-date" id="new-due-date">
-        <select name="priority" id="new-priority">
-          <option selected disabled hidden>Priority</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-          <option value="Urgent">Urgent</option>
-        </datalist>
-        <input type="submit" value="Submit" id="new-submit" class="submit-new-task">
-      </form>
+      <div class="centered">
+        <form id="new-form" class="hidden">
+          <input type="text" name="title" maxlength="30" id="new-title" placeholder="Title" required>
+          <input type="text" name="description" columns="4" id="new-description" placeholder="Description..." required>
+          <input type="date" name="due-date" id="new-due-date">
+          <select name="priority" id="new-priority">
+            <option selected disabled hidden>Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+          </datalist>
+          <input type="submit" value="Submit" id="new-submit" class="submit-new-task">
+        </form>
+      </div>
     </div>
   </div>
 </body>

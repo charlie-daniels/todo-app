@@ -32,8 +32,6 @@ elements.newTaskForm.addEventListener('submit', (e) => {
   );
 })
 
-elements.navMenu.addEventListener('click', DOMController.toggleMenu);
-
 elements.sideGeneralInbox.addEventListener('click', () => DOMController.showInbox(taskList));
 
 elements.sideGeneralToday.addEventListener('click', () => DOMController.showToday(taskList));

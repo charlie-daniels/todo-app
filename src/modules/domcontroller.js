@@ -47,15 +47,17 @@ export const DOMController = (() => {
     _toggleElementDisabled(elements.navNewTask);
   }
 
-  const toggleMenu = () => {
-    _toggleElementHidden(elements.side);
+  const _setDashboardTitle = (title) => {
+    elements.dashboardTitle.textContent = title;
   }
 
   const showInbox = (tasks) => {
+    _setDashboardTitle('Inbox');
     _refreshTaskList(tasks);
   }
 
   const showToday = (tasks) => {
+    _setDashboardTitle('Today');
     let todayTasks = [];
     tasks.forEach(t => {
       if (isToday(t.dueDate)) todayTasks.push(t);
@@ -64,6 +66,7 @@ export const DOMController = (() => {
   }
 
   const showUpcoming = (tasks) => {
+    _setDashboardTitle('Upcoming');
     let upcomingTasks = [];
     tasks.forEach(t => {
       if (isThisWeek(t.dueDate)) upcomingTasks.push(t);
@@ -73,9 +76,14 @@ export const DOMController = (() => {
 
   return { 
     toggleNewTaskForm,
-    toggleMenu,
     showInbox,
     showToday,
     showUpcoming
   };
 })();
+
+function onLoad() {
+  DOMController.showInbox([]);
+}
+
+onLoad();

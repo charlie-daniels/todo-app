@@ -1,5 +1,4 @@
 // Navbar
-export const navMenu = document.getElementById('show-menu');
 export const navHome = document.getElementById('show-home');
 export const navSearch = document.getElementById('search-query');
 export const navNewTask = document.getElementById('new-task');
