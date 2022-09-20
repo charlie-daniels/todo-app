@@ -19,11 +19,30 @@ export const DOMController = (() => {
   const _refreshTaskList = (tasks) => {
     _clearElement(elements.dashboardTaskList);
     tasks.forEach(task => {
-      elements.dashboardTaskList.append(taskToHTML(task));
+      elements.dashboardTaskList.append(_taskToHTML(task));
     });
   }
 
-  const taskToHTML = (task) => {
+  const _refreshProjectList = (projects) => {
+    _clearElement(elements.sideProjectsList);
+    projects.forEach(project => {
+      const liElement = document.createElement('li');
+      const projButton = document.createElement('button');
+      liElement.appendChild(projButton);
+      projButton.textContent = project.title;
+
+      projButton.addEventListener('click', () => {
+        _showProject(project);
+      });
+      elements.sideProjectsList.append(liElement);
+    })
+  }
+
+  const _setDashboardTitle = (title) => {
+    elements.dashboardTitle.textContent = title;
+  }
+
+  const _taskToHTML = (task) => {
     const wrapper = document.createElement('div');
     const base =
     '<li class="dash-task">' +
@@ -42,13 +61,35 @@ export const DOMController = (() => {
     return wrapper;
   }
 
+  const _projectToHTML = (project) => {
+    const wrapper = document.createElement('div');
+    const base =
+    '<li class="dash-project">' +
+      '<h3 class="title"></h3>' +
+      '<p class="description">' +
+      '<div class="properties">' +
+        '<p class="due-date"></p>' +
+        '<p class="priority"></p>' +
+      '</div>' +
+    '</li>';
+    wrapper.insertAdjacentHTML('beforeend', base);
+    wrapper.querySelector('.title').textContent = project.title;
+    wrapper.querySelector('.description').textContent = project.description;
+    wrapper.querySelector('.due-date').textContent = project.dueDateToString();
+    return wrapper;
+  }
+
   const toggleNewTaskForm = () => {
     _toggleElementHidden(elements.newTaskForm);
     _toggleElementDisabled(elements.navNewTask);
+    _toggleElementDisabled(elements.sideCreateProject);
   }
 
-  const _setDashboardTitle = (title) => {
-    elements.dashboardTitle.textContent = title;
+  const toggleNewProjectForm = () => {
+    _clearElement(elements.dashboardTaskList);
+    _toggleElementHidden(elements.newProjectForm);
+    _toggleElementDisabled(elements.sideCreateProject);
+    _toggleElementDisabled(elements.navNewTask);
   }
 
   const showInbox = (tasks) => {
@@ -64,7 +105,7 @@ export const DOMController = (() => {
     });
     _refreshTaskList(todayTasks);
   }
-
+  
   const showUpcoming = (tasks) => {
     _setDashboardTitle('Upcoming');
     let upcomingTasks = [];
@@ -74,11 +115,23 @@ export const DOMController = (() => {
     _refreshTaskList(upcomingTasks);
   }
 
+  const showProject = (project) => {
+    _clearElement(elements.dashboardTaskList);
+    _setDashboardTitle(project.title);
+  }
+
+  const updateProjectList = (projects) => {
+    _refreshProjectList(projects);
+  }
+
   return { 
     toggleNewTaskForm,
+    toggleNewProjectForm,
     showInbox,
     showToday,
-    showUpcoming
+    showUpcoming,
+    showProject,
+    updateProjectList
   };
 })();
 

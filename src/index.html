@@ -32,6 +32,7 @@
       <section id="projects">
         <h2>Projects</h2>
         <ul></ul>
+        <button id="create-project">Create project</button>
       </section>
     </aside>
     <div id="dashboard">
@@ -41,18 +42,24 @@
       </header>
       <ul id="task-list"></ul>
       <div class="centered">
-        <form id="new-form" class="hidden">
-          <input type="text" name="title" maxlength="30" id="new-title" placeholder="Title" required>
-          <input type="text" name="description" columns="4" id="new-description" placeholder="Description..." required>
-          <input type="date" name="due-date" id="new-due-date">
-          <select name="priority" id="new-priority">
+        <form id="new-task-form" class="hidden">
+          <input type="text" name="title" maxlength="30" id="new-task-title" placeholder="Title" required>
+          <input type="text" name="description" columns="4" id="new-task-description" placeholder="Description..." required>
+          <input type="date" name="due-date" id="new-task-due-date">
+          <select name="priority" id="new-task-priority">
             <option selected disabled hidden>Priority</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
             <option value="Urgent">Urgent</option>
           </datalist>
-          <input type="submit" value="Submit" id="new-submit" class="submit-new-task">
+          <input type="submit" value="Submit" id="new-task-submit" class="submit-new-task">
+        </form>
+        <form id="new-project-form" class="hidden">
+          <input type="text" name="title" maxlength="30" id="new-proj-title" placeholder="Title" required>
+          <input type="text" name="description" columns="4" id="new-proj-description" placeholder="Description..." required>
+          <input type="date" name="due-date" id="new-proj-due-date">
+          <input type="submit" value="Submit" id="new-proj-submit" class="submit-new-task">
         </form>
       </div>
     </div>

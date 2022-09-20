@@ -14,15 +14,23 @@ export const sideProjectsList = document.querySelector('#projects > ul');
 export const sideGeneralInbox = document.getElementById('show-inbox');
 export const sideGeneralToday = document.getElementById('show-today');
 export const sideGeneralUpcoming = document.getElementById('show-upcoming');
+export const sideCreateProject = document.getElementById('create-project');
 // Dashboard
 export const dashboardTitle = document.getElementById('display-title');
 export const dashboardFilters = document.getElementById('filters');
 export const dashboardTaskList = document.getElementById('task-list');
 export const dashboardFirstTask = document.querySelector('dash-task');
 // New Task Form
-export const newTaskForm = document.getElementById('new-form');
+export const newTaskForm = document.getElementById('new-task-form');
 export const newTaskFormFields = {
-  title: document.getElementById('new-title'),
-  description: document.getElementById('new-description'),
-  submit: document.getElementById('new-submit')
+  title: document.getElementById('new-task-title'),
+  description: document.getElementById('new-task-description'),
+  submit: document.getElementById('new-task-submit')
+};
+// New Project Form
+export const newProjectForm = document.getElementById('new-project-form');
+export const newProjectFormFields = {
+  title: document.getElementById('new-project-title'),
+  description: document.getElementById('new-project-description'),
+  submit: document.getElementById('new-project-submit')
 };
